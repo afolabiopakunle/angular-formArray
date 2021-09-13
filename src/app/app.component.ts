@@ -8,13 +8,17 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent  {
   datas: Observable<any>;
+  numbers: number = 0;
   
  data = new Observable(observer => {
     setInterval(() => {
-      observer.next("Hello World!")
+      observer.next(this.numbers++)
     }, 2000);
 
-  }).subscribe(result => console.log(result))
+  }).subscribe(result => {
+    // this.numbers++
+    console.log(this.numbers)
+  })
   
   // .unsubscribe();
 clicked() {
