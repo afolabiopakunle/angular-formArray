@@ -7,25 +7,22 @@ import { Observable, Subscription } from 'rxjs';
   styleUrls: [ './app.component.css' ]
 })
 export class AppComponent  {
-  datas: Subscription;
-  numbers: number = 0;
-  
-
-
-Observer =  new Observable(observer => {
-      let count = 0;
-      setInterval(() => {
-        observer.next(count++);
-      }, 1000)
-    })
-
-
-testFunct() {
-  this.datas = this.Observer.subscribe(data => {
-    console.log(data)
+  data: Subscription;
+  counter = 0;
+  customObservable = new Observable(observer => {
+    observer.next(1)
   })
-}
 
+  testFunct() {
+    // let counter = 0;
+    this.data = this.customObservable.subscribe((result: number) => {
+      this.counter++
+      console.log(this.counter);
+    })
+  }
 
-  
+  closeFunct() {
+
+  }
+
 }
