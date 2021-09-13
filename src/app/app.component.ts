@@ -14,15 +14,12 @@ export class AppComponent  {
       observer.next("Hello World!")
     }, 2000);
 
-    setTimeout(() => {
-      observer.unsubscribe()
-    }, 4000)
-  })
-  
-  .subscribe(result => console.log(result))
+  }).subscribe(result => console.log(result))
   
   // .unsubscribe();
-
+clicked() {
+  this.data.unsubscribe()
+}
 
 
   
