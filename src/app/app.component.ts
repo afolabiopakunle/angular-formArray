@@ -6,23 +6,25 @@ import { Observable, Subscription } from 'rxjs';
   templateUrl: './app.component.html',
   styleUrls: [ './app.component.css' ]
 })
-export class AppComponent implements OnInit  {
-  datas: Observable<any>;
+export class AppComponent  {
+  datas: Subscription;
   numbers: number = 0;
   
 
-  ngOnInit() {
-    const personalObservable =  new Observable(observer => {
+
+Observer =  new Observable(observer => {
       let count = 0;
       setInterval(() => {
         observer.next(count++);
       }, 1000)
     })
 
-    personalObservable.subscribe(data => {
-      console.log(data)
-    })
-  }
+
+testFunct() {
+  this.datas = this.Observer.subscribe(data => {
+    console.log(data)
+  })
+}
 
 
   
